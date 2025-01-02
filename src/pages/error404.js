@@ -6,7 +6,7 @@ function NoMatch() {
             <h1>Oops!</h1>
             <h3>Looks like you have reached a page that does not exist.</h3>
             <br/>
-            <h3>Click <Link to="/Home">Here</Link> to return to the home page.</h3>
+            <h3>Click <Link to="/">Here</Link> to return to the home page.</h3>
         </div>
     )
 }
