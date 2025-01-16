@@ -1,0 +1,18 @@
+#footer {
+    background-color: #545555;
+    color: white;
+}
+
+#footer.container {
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    min-height: 300px;
+    display: grid;
+    align-items: center;
+}
+
+#footerLink {
+    color: white !important;
+    text-decoration: none !important;
+}

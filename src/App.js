@@ -7,6 +7,7 @@ import CharacterCreatePage from './pages/CreateCharacter';
 import NoMatch from './pages/error404';
 
 import Header from './components/Header/header';
+import Footer from './components/Footer/footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="*" element={<NoMatch />}></Route>
         </Route>
       </Routes>
+      <Footer/>
     </>
   );
 }
