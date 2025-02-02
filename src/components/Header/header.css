@@ -1,0 +1,22 @@
+.nav {
+    display: flex;
+}
+.top-bar {
+    height: 2.5rem;
+    background-color: var(--primary_dark);
+}
+.main-nav{
+    height: 3rem;
+    background-color: var(--primary_gray);
+    color: var(--primary_light) !important;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    justify-content: space-evenly;
+}
+.main-nav a,a:visited{
+    color: var(--primary_light);
+    text-decoration: none !important;
+}
