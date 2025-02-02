@@ -1,3 +1,23 @@
+:root {
+  --ddb_red: #C73032;
+  --barbarian_f: #E7623E;
+  --bard_rogue: #AB6DAC;
+  --cleric_silver:#91A1B2;
+  --druid_moss: #7A853B;
+  --fighter_rust: #7F513E;
+  --monk_sky: #51A5C5;
+  --paladin_gold: #B59E54;
+  --ranger_em: #507F62;
+  --rogue_ash: #555752;
+  --sorcerer_blood: #992E2E;
+  --warlock_iris: #7B469B;
+  --wizard_cobalt: #2A50A1;
+
+  --primary_dark: #333333;
+  --primary_gray: #616161;
+  --primary_light: #e3e3e3;
+}
+
 .App {
   text-align: center;
 }
