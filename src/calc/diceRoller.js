@@ -4,6 +4,9 @@ import "bootstrap"
 
 import "./diceRoller.css"
 
+const diceSizeValues = [];
+const rollValues = [];
+
 function DiceContainer() {
 // const diceOptions = [
 //     {value:4, label:"4"},
@@ -18,7 +21,7 @@ function DiceContainer() {
             <div id="container">
                 <h1>Dice Roller</h1>
                 <label>Dice size</label>
-                <select id="diceNum" defaultValue="4">
+                <select id="diceNum" defaultValue="20">
                     <option value="4">4</option> 
                     <option value="6">6</option> 
                     <option value="8">8</option> 
@@ -29,11 +32,11 @@ function DiceContainer() {
                 <button onClick={rollDice}>Roll Dice</button>
                 <div className="container">
                     <div className="row justify-content-md-center align-items-center">
-                        <div className="col-md-6">
+                        <div className="col-md-6 px-0">
                             Dice Rolled:
                             <div id="diceRolled" ></div>
                         </div>
-                        <div id="diceResult" className="col-md-6">
+                        <div className="col-md-6 px-0">
                             Result:
                             <div id="diceResult"></div>
                         </div>
@@ -46,15 +49,35 @@ function DiceContainer() {
 
 function rollDice(){
     const diceNum = document.getElementById("diceNum").value;
-    const diceResult = document.getElementById("diceResult");
     const diceRolled = document.getElementById("diceRolled");
-
-    const values = [];
+    const diceResult = document.getElementById("diceResult");
+    
     var value = Math.floor(Math.random() * diceNum) + 1;
-    values.unshift(value);
 
-    diceRolled.innerHTML += (diceNum + "<br>" );
-    diceResult.innerHTML += (value + "<br>");
+    diceSizeValues.unshift(diceNum);
+    rollValues.unshift(value);
+    console.log(rollValues)
+
+    var diceSizeValuesText = "";
+    for (let i = 0; i < diceSizeValues.length; i++){
+        if(i % 2 === 0){
+            diceSizeValuesText += ("<p style=\"background: #CBCBCB\">" + diceSizeValues[i] + "</p>")
+        } else{
+            diceSizeValuesText += ("<p>" + diceSizeValues[i] + "</p>")
+        }       
+    }
+
+    var rollValuesText = "";
+    for (let i = 0; i < rollValues.length; i++){
+        if(i % 2 === 0){
+            rollValuesText += ("<p style=\"background: #CBCBCB\">" + rollValues[i] + "</p>")
+        } else{
+            rollValuesText += ("<p>" + rollValues[i] + "</p>")
+        }
+    }
+
+    diceRolled.innerHTML = diceSizeValuesText;
+    diceResult.innerHTML = rollValuesText;
     
 }
 
