@@ -15,4 +15,4 @@ then `npm start` to start the project
 
 ## Team Members
 
-Bryttn Bartschi, Hanna Johnson, Hai Le, Laura Lively, Easton Shaum, and Chantel Skinner
+Bryttn Bartschi, Hanna Johnson, Hai Le, Laura Lively, Easton Shaum, and Chantel Skinner 
