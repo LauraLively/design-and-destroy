@@ -1,17 +1,15 @@
-
+import React from 'react';
 import "./footer.css";
 
 function Footer() {
 return (
-    <>
-        <div id="footer" className="container">
-            <div className="row">
-                <div className="col">
-                    <h4>Design and Destroy</h4>
-                </div>
-            </div>
-        </div>
-    </>
+    <footer className="footer">
+      <div className="footer-overlay">
+        <p className="footer-text">© 2025 Design & Destroy</p>
+        <p className="footer-text">All rights reserved</p>
+        {/* <p className="footer-text">Forge your destiny, adventurer!</p> */}
+      </div>
+    </footer>
 )
 }
 
