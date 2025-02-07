@@ -1,19 +1,28 @@
 import Nav from 'react-bootstrap/Nav';
+import React from 'react';
+import { GiSpellBook, GiWizardStaff, GiDragonHead } from "react-icons/gi";
+import "./header.css";
 
 
 function Header() {
     return (
-      <div class="header">
-        <div class="top-bar">
-
-        </div>
-        <Nav className="mb-0 p-4 main-nav">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="#/CharacterCreate">Create a new Character</Nav.Link>
-          <Nav.Link href="#/ViewCharacters">View your Characters</Nav.Link>
-          <Nav.Link href="#/Login">Login</Nav.Link>
-        </Nav>
-      </div>
+      <div className="header-container">
+        <div className="top-bar"></div>
+        <nav className="nav-bar">
+          <Nav.Link href="/" className="nav-link">
+            <GiDragonHead className="icon" /> Home
+          </Nav.Link>
+          <Nav.Link href="#/CharacterCreate" className="nav-link">
+            <GiWizardStaff className="icon" /> Create Character
+          </Nav.Link>
+          <Nav.Link href="#/ViewCharacters" className="nav-link">
+            <GiSpellBook className="icon" /> View Characters
+          </Nav.Link>
+          <Nav.Link href="#/Login" className="nav-link">
+            Login
+          </Nav.Link>
+        </nav>
+    </div>
     );
 }
     
