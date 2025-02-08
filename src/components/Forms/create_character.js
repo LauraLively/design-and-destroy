@@ -1,5 +1,8 @@
 import React from 'react';
 import Select from 'react-select';
+import { useEffect, useState } from "react";
+import { getAllClasses } from '../../database/ext/api';
+import { getAllRaces } from '../../database/ext/api';
 
 const options = [
     { value: "Dragonborn", label: "Dragonborn" },
@@ -41,9 +44,71 @@ const options = [
 ]
 
 function CreateCharacter() {
+    const [classes, setClasses] = useState([]);
+    const [races, setRaces] = useState([]);
+
+    useEffect(() => {
+        getAllClasses().then(setClasses);
+
+        getAllRaces().then(setRaces);
+    }, []);
+
+    var classesOpt = [];
+    classes.forEach((value) =>{
+        classesOpt.push({
+            key: value.name,
+            value: value.index,
+            label: value.name
+        })
+    })
+    var racesOpt = [];
+    races.forEach((value) =>{
+        racesOpt.push({
+            key: value.name,
+            value: value.index,
+            label: value.name
+        })
+    })
+    console.log("classes", classes);
+
     return(
         <>
-        <p>Here is where you can create you're character!</p>
+        <h2 class="text-center">Character Creator</h2>
+        <form>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="characterName">Character Name</label>
+                <input type="text" class="form-control" id="characterName" aria-describedby="CharacterName" placeholder="Character Name"/>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="characterClass">Character Class</label>
+                <Select options={classesOpt} class="form-control" id="characterClass" aria-describedby="CharacterClass" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="characterRace">Character Race</label>
+                <Select options={racesOpt} class="form-control" id="characterRace" aria-describedby="CharacterRace" />
+              </div>
+            </div>
+          </div>
+          <p></p>
+          <h3 class="text-center">Helper stuff</h3>
+          <div class="row">
+            <div class="text-center col-md-8">
+                <p>This is a Barbarian</p>
+            </div>            
+          </div>
+        <p></p>
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+        </form>
+
+        {/* <p>Here is where you can create you're character!</p>
         <label>Your Characters Name</label>
         <input type="text"/> 
         <label>Race</label>
@@ -52,7 +117,7 @@ function CreateCharacter() {
         <input type="text"/> 
 
 
-        <button type="submit">Create Character!</button>
+        <button type="submit">Create Character!</button> */}
         </>
     )
 }

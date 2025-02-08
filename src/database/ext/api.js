@@ -10,6 +10,28 @@ export async function getAllSpells() {
       )
     );
 }
+export async function getAllClasses() {
+  const classIndexes = await fetch(BASE_URL + "/api/classes").then((response) =>
+    response.json()
+  );
+  return Promise.all(
+    classIndexes.results.map((index) =>
+      fetch(BASE_URL + index.url).then((response) => response.json())
+    )
+  );
+}
+
+export async function getAllRaces() {
+  const raceIndexes = await fetch(BASE_URL + "/api/races").then((response) =>
+    response.json()
+  );
+  return Promise.all(
+    raceIndexes.results.map((index) =>
+      fetch(BASE_URL + index.url).then((response) => response.json())
+    )
+  );
+}
+
 
 export async function getAllMonsters() {
     const monsterIndexes = await fetch(BASE_URL + "/api/monsters").then((response) =>
