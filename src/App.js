@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <Header />
+      <div class="container">
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Add additional pages here after importing */}
@@ -28,6 +29,7 @@ function App() {
           <Route path="*" element={<NoMatch />}></Route>
         </Route>
       </Routes>
+      </div>
       <Footer/>
     </>
   );
