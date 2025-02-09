@@ -56,3 +56,6 @@
     transform: rotate(360deg);
   }
 }
+.btn-paper {
+  background-image: url('../src/assets/image/old-paper-bar.png') no-repeat center center;
+}
