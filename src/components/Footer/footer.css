@@ -18,13 +18,13 @@
 } */
 
 .footer {
-    background: url('../../assets/image/DnDfooter.jpeg') no-repeat center center;
-    position: fixed;
+    background: url('../../assets/image/DnDfooter_copy.jpeg') no-repeat center center;
+    /* position: fixed; */
     bottom: 0;
     left: 0;
     width: 100%;
     background-size: cover;
-    height: 250px;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,14 +38,14 @@
     border: 2px solid gold;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
     animation: glowing 3s infinite alternate; */
-    margin-top: 200px;
+    margin-top: 20px;
   }
   
   .footer-text {
-    color: #d4af37;
-    font-size: 14px;
+    /* color: #d4af37;
     font-family: "Cinzel", serif;
-    text-shadow: 2px 2px 5px rgba(255, 223, 100, 0.8);
+    text-shadow: 2px 2px 5px rgba(255, 223, 100, 0.8); */
+    font-size: 1.5rem;
     text-align: center;
   }
   
