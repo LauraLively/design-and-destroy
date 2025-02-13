@@ -1,8 +1,10 @@
 #container{
-    width: 25%;
+    width: 30%;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
+    max-Height: 400px;
+    overflow: scroll;
 }
 
 p {

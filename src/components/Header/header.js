@@ -1,6 +1,6 @@
 import Nav from 'react-bootstrap/Nav';
 import React from 'react';
-import { GiSpellBook, GiWizardStaff, GiDragonHead } from "react-icons/gi";
+import { GiSpellBook, GiWizardStaff, GiDragonHead, GiLockpicks } from "react-icons/gi";
 import "./header.css";
 
 
@@ -17,6 +17,9 @@ function Header() {
           </Nav.Link>
           <Nav.Link href="#/ViewCharacters" className="nav-link">
             <GiSpellBook className="icon" /> View Characters
+          </Nav.Link>
+          <Nav.Link href="#/Tools" className="nav-link">
+            <GiLockpicks className="icon" /> Game Tools
           </Nav.Link>
           <Nav.Link href="#/Login" className="nav-link">
             Login
