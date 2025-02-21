@@ -1,9 +1,11 @@
 import React,{useState,useEffect} from 'react';
 
+import { Link } from 'react-router';
+
 import CharacterData from "../database/testData/chars.json"
 
 
-function CharacterViewPage() {
+function AllCharactersPage() {
     // To use laterrrrr
     // const [data,setData]=useState([]);
     // const getData= async ()=>{
@@ -33,8 +35,8 @@ function CharacterViewPage() {
     const CharData=CharacterData.userCharacters.map((character) =>{
         return(
             <div>
-                <p>{character.id}</p>
-                <p>{character.Name}</p>
+                <Link to={'/ViewCharacters/' + character.id}><p>{character.Name}</p></Link>
+                <p></p>
             </div>
         )
     })
@@ -49,4 +51,4 @@ function CharacterViewPage() {
 
 }
 
-export default CharacterViewPage;
+export default AllCharactersPage;

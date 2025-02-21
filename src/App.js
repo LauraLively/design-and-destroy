@@ -4,7 +4,8 @@ import { Routes, Route, Outlet } from "react-router-dom";
 
 import Homepage from './pages/Home';
 import CharacterCreatePage from './pages/CreateCharacter';
-import CharacterViewPage from './pages/ViewCharacters';
+import AllCharactersPage from './pages/ViewCharacters';
+import Character from './pages/CharacterView';
 import SpellsPage from './pages/Spells';
 import ToolsPage from './pages/Tools';
 import Login from './pages/Login';
@@ -24,7 +25,8 @@ function App() {
           {/* Add additional pages here after importing */}
           <Route index element={<Homepage />}></Route>
           <Route path="/CharacterCreate" element={<CharacterCreatePage />}></Route>
-          <Route path="/ViewCharacters" element={<CharacterViewPage />}></Route>
+          <Route path="/ViewCharacters" element={<AllCharactersPage />}></Route>
+          <Route path="/ViewCharacters/:id" element={<Character />}></Route>
           <Route path="/Tools" element={<ToolsPage />}></Route>
           <Route path="/Spells" element={<SpellsPage />}></Route>
           <Route path="/Login" element={<Login />}></Route>
