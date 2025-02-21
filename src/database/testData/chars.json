@@ -1,0 +1,31 @@
+{
+    "userCharacters":[
+    {
+        "id": 1,
+        "Name": "Bartholomue",
+        "Background": "Acolyte",
+        "Class": "Gnome",
+        "Subclass": "Garden",
+        "Race": "Bard",
+        "Strength": 1,
+        "Inteligence": 2,
+        "Dexterity": 3,
+        "Wisdom": 4,
+        "Charisma": 5,
+        "Constitution": 6
+    },
+    {
+        "id": 2,
+        "Name": "Bob",
+        "Background": "Criminal",
+        "Class": "Druid",
+        "Subclass": "Drunk",
+        "Race": "Elf",
+        "Strength": 1,
+        "Inteligence": 2,
+        "Dexterity": 3,
+        "Wisdom": 4,
+        "Charisma": 5,
+        "Constitution": 6
+    }
+]}
