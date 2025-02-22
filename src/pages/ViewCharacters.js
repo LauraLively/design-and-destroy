@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+// import React,{useState,useEffect} from 'react';
 
 import { Link } from 'react-router';
 
@@ -35,7 +35,7 @@ function AllCharactersPage() {
     const CharData=CharacterData.userCharacters.map((character) =>{
         return(
             <div>
-                <Link to={'/ViewCharacters/' + character.id}><p>{character.Name}</p></Link>
+                <button><Link to={'/ViewCharacters/' + character.id}><p>{character.Name}</p></Link></button>
                 <p></p>
             </div>
         )
