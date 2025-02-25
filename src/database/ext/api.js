@@ -10,6 +10,15 @@ export async function getAllSpells() {
       )
     );
 }
+
+export async function getSpell(SpellUrl) {
+  const spellData = await fetch(BASE_URL + "/api/2014/spells/" + SpellUrl).then((response) =>
+    response.json()
+  );
+  console.log("Spelldata", spellData)
+  return (spellData);
+}
+
 export async function getAllClasses() {
   const classIndexes = await fetch(BASE_URL + "/api/classes").then((response) =>
     response.json()

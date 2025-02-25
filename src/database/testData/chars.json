@@ -3,29 +3,42 @@
     {
         "id": 1,
         "Name": "Bartholomue",
+        "Level": "5",
         "Background": "Acolyte",
         "Class": "Gnome",
         "Subclass": "Garden",
         "Race": "Bard",
+        "Alignment": "Lawful Neutral",
         "Strength": 1,
         "Inteligence": 2,
         "Dexterity": 3,
         "Wisdom": 4,
         "Charisma": 5,
-        "Constitution": 6
+        "Constitution": 6,
+        "Languages":["Celestial", "Common", "Elvish"],
+        "Weapons":["Short sword", "Toothpick", "Hoe"],
+        "Spells":[
+            {"Name": "Acid Arrow", "url": "acid-arrow"},
+            {"Name": "Control Weather", "url": "control-weather"},
+            {"Name": "Disintegrate", "url": "disintegrate"}
+        ]
     },
     {
         "id": 2,
         "Name": "Bob",
+        "Level": "10",
         "Background": "Criminal",
         "Class": "Druid",
         "Subclass": "Drunk",
         "Race": "Elf",
+        "Alignment": "Chaotic Good",
         "Strength": 1,
         "Inteligence": 2,
         "Dexterity": 3,
         "Wisdom": 4,
         "Charisma": 5,
-        "Constitution": 6
+        "Constitution": 6,
+        "Languages":["Celestial", "Common", "Elvish"],
+        "Weapons":["Chains", "FInger Guns", "Bad Attitude"]
     }
 ]}
