@@ -73,37 +73,37 @@ function CreateCharacter() {
 
     return(
         <>
-        <h2 class="text-center">Character Creator</h2>
+        <h2 className="text-center">Character Creator</h2>
         <form>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
+          <div className="row">
+            <div className="col-md-6">
+              <div className="form-group">
                 <label for="characterName">Character Name</label>
-                <input type="text" class="form-control" id="characterName" aria-describedby="CharacterName" placeholder="Character Name"/>
+                <input type="text" className="form-control" id="characterName" aria-describedby="CharacterName" placeholder="Character Name"/>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
+            <div className="col-md-6">
+              <div className="form-group">
                 <label for="characterClass">Character Class</label>
-                <Select options={classesOpt} class="form-control" id="characterClass" aria-describedby="CharacterClass" />
+                <Select options={classesOpt} className="form-control" id="characterClass" aria-describedby="CharacterClass" />
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
+            <div className="col-md-6">
+              <div className="form-group">
                 <label for="characterRace">Character Race</label>
-                <Select options={racesOpt} class="form-control" id="characterRace" aria-describedby="CharacterRace" />
+                <Select options={racesOpt} className="form-control" id="characterRace" aria-describedby="CharacterRace" />
               </div>
             </div>
           </div>
           <p></p>
-          <h3 class="text-center">Helper stuff</h3>
-          <div class="row">
-            <div class="text-center col-md-8">
+          <h3 className="text-center">Helper stuff</h3>
+          <div className="row">
+            <div className="text-center col-md-8">
                 <p>This is a Barbarian</p>
             </div>            
           </div>
         <p></p>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>

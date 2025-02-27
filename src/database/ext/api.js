@@ -12,15 +12,12 @@ export async function getAllSpells() {
     );
 }
 
-export async function getSpell(SpellUrl) {
-  const spellData = await fetch(BASE_URL + "/api/2014/spells/" + SpellUrl).then((response) =>
-    response.json()
+export async function getSpell(Spells) {
+  return Promise.all(
+    Spells.map((data) =>
+      fetch(BASE_URL + "/api/2014/spells/" + data.index).then((response) => response.json())
+    )
   );
-  console.log("Spelldata", spellData)
-  return spellData;
-  // return new Promise((resolve, reject) => {
-  //   fetch(BASE_URL + "/api/2014/spells/" + SpellUrl).then((response) => response.json())
-  // })
 }
 
 export async function getAllClasses() {

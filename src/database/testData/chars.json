@@ -18,9 +18,9 @@
         "Languages":["Celestial", "Common", "Elvish"],
         "Weapons":["Short sword", "Toothpick", "Hoe"],
         "Spells":[
-            {"Name": "Acid Arrow", "url": "acid-arrow"},
-            {"Name": "Control Weather", "url": "control-weather"},
-            {"Name": "Disintegrate", "url": "disintegrate"}
+            {"Name": "Acid Arrow", "index": "acid-arrow"},
+            {"Name": "Control Weather", "index": "control-weather"},
+            {"Name": "Disintegrate", "index": "disintegrate"}
         ]
     },
     {

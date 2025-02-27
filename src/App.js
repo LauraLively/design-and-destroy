@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <Header />
-      <div class="container">
+      <div className="container">
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Add additional pages here after importing */}

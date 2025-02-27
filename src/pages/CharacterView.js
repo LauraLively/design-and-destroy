@@ -23,11 +23,13 @@ function Character() {
     const [spellDataFull, setSpellFull] = useState([]);
 
       useEffect(() => {
-            getSpell(characterData.Spells[0].url)
+            getSpell(characterData.Spells)
               .then(setSpellFull)
-              .then(replaceSpellContent(spellDataFull))
-        }, []);
-
+              .then(characterData.Spells = spellDataFull)
+              console.log("All data pre", spellDataFull)
+      }, []);
+      console.log("All data", characterData.Spells)
+    
     return(
         <>
         <div class="row justify-content-md-center">
@@ -65,7 +67,7 @@ function Character() {
                 <Card.Body>
                   <Card.Title>Strength</Card.Title>
                   <Card.Text>
-                  <h2>{characterData.Strength}</h2>
+                  {characterData.Strength}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -75,7 +77,7 @@ function Character() {
                 <Card.Body>
                   <Card.Title>Inteligence</Card.Title>
                   <Card.Text>
-                  <h2>{characterData.Inteligence}</h2>
+                  {characterData.Inteligence}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -85,7 +87,7 @@ function Character() {
                 <Card.Body>
                   <Card.Title>Dexterity</Card.Title>
                   <Card.Text>
-                  <h2>{characterData.Dexterity}</h2>
+                  {characterData.Dexterity}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -95,7 +97,7 @@ function Character() {
                 <Card.Body>
                   <Card.Title>Wisdom</Card.Title>
                   <Card.Text>
-                  <h2>{characterData.Wisdom}</h2>
+                  {characterData.Wisdom}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -105,7 +107,7 @@ function Character() {
                 <Card.Body>
                   <Card.Title>Charisma</Card.Title>
                   <Card.Text>
-                  <h2>{characterData.Charisma}</h2>
+                  {characterData.Charisma}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -115,7 +117,7 @@ function Character() {
                 <Card.Body>
                   <Card.Title>Constitution</Card.Title>
                   <Card.Text>
-                  <h2>{characterData.Constitution}</h2>
+                  {characterData.Constitution}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -167,7 +169,7 @@ function Character() {
                     <Accordion.Item eventKey={spell.Name}>
                       <Accordion.Header>{spell.Name}</Accordion.Header>
                       <Accordion.Body>
-                        {spell.Name}
+                      {spell.range}
                       </Accordion.Body>
                     </Accordion.Item>
                     </div>
@@ -185,50 +187,6 @@ function Character() {
         </div>
         </>
     )
-}
-
-async function getSpells(SpellBasic) {
-  console.log("start", SpellBasic)
-  const [spell, setSpell] = useState([]);
-
-    console.log("innnn")
-    useEffect(() => {
-            getSpell(SpellBasic.url)
-              .then(setSpell)
-        }, []);
- 
-  console.log("Spell after api", spell)     
-  return spell;
-}
-
-function replaceSpellContent(spellDataFull){
-    var SpellContent = document.getElementById("SpellContent")
-    console.log("SpellContent", SpellContent)
-    SpellContent = (
-      <div id="SpellContent" class="row">
-            <div class="col-md-4">
-              <div>
-                <h4>Spells</h4>
-                <Accordion>
-                  <div>
-                    {spellDataFull.map((spell) => (
-                    <div>
-                    <Accordion.Item eventKey={spell.Name}>
-                      <Accordion.Header>{spell.Name}</Accordion.Header>
-                      <Accordion.Body>
-                        {spell.Name}
-                        {spell.Range}
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    </div>
-                    ))}
-                  </div>
-                </Accordion>
-              </div>
-            </div>         
-        </div>
-    )
-    console.log("SpellContent after", SpellContent)
 }
 
 export default Character;
