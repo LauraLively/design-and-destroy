@@ -4,6 +4,7 @@ export async function getAllSpells() {
     const spellIndexes = await fetch(BASE_URL + "/api/spells").then((response) =>
       response.json()
     );
+    console.log("Spelldata", spellIndexes)
     return Promise.all(
       spellIndexes.results.map((index) =>
         fetch(BASE_URL + index.url).then((response) => response.json())
@@ -16,7 +17,10 @@ export async function getSpell(SpellUrl) {
     response.json()
   );
   console.log("Spelldata", spellData)
-  return (spellData);
+  return spellData;
+  // return new Promise((resolve, reject) => {
+  //   fetch(BASE_URL + "/api/2014/spells/" + SpellUrl).then((response) => response.json())
+  // })
 }
 
 export async function getAllClasses() {
