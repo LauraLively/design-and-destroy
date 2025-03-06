@@ -41,4 +41,20 @@
         "Languages":["Celestial", "Common", "Elvish"],
         "Weapons":["Chains", "FInger Guns", "Bad Attitude"]
     }
-]}
+],
+    "userProfiles":[
+        {
+            "id": 1,
+            "Name": "Hai Le",
+            "Email": "HaiLe@gmail.com",
+            "CharacterCount": 4
+        },
+        {
+            "id": 2,
+            "Name": "Laura",
+            "Email": "LauraLively@gmail.com",
+            "CharacterCount": 839
+        }
+    ]
+
+}

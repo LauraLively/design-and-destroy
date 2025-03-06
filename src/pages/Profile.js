@@ -20,14 +20,6 @@ function Character() {
     }
   }
 
-  const [spellDataFull, setSpellFull] = useState([]);
-
-  useEffect(() => {
-    getSpell(characterData.Spells)
-      .then(setSpellFull)
-      .then(characterData.Spells = spellDataFull)
-  }, []);
-
   return (
     <>
       <div class="row justify-content-md-center">
