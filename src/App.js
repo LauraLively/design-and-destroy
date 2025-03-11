@@ -7,6 +7,7 @@ import CharacterCreatePage from './pages/CreateCharacter';
 import AllCharactersPage from './pages/ViewCharacters';
 import Character from './pages/CharacterView';
 import SpellsPage from './pages/Spells';
+import EquipmentPage from './pages/Equipment';
 import ToolsPage from './pages/Tools';
 import Login from './pages/Login';
 import NoMatch from './pages/error404';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/ViewCharacters/:id" element={<Character />}></Route>
           <Route path="/Tools" element={<ToolsPage />}></Route>
           <Route path="/Spells" element={<SpellsPage />}></Route>
+          <Route path="/Equipment" element={<EquipmentPage />}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="*" element={<NoMatch />}></Route>
         </Route>

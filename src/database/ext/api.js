@@ -20,6 +20,18 @@ export async function getSpell(Spells) {
   );
 }
 
+export async function getAllEquipment() {
+  const equipmentIndexes = await fetch(BASE_URL + "/api/equipment").then((response) =>
+    response.json()
+  );
+  console.log("Weapondata", equipmentIndexes)
+  return Promise.all(
+    equipmentIndexes.results.map((index) =>
+      fetch(BASE_URL + index.url).then((response) => response.json())
+    )
+  );
+}
+
 export async function getAllClasses() {
   const classIndexes = await fetch(BASE_URL + "/api/classes").then((response) =>
     response.json()
@@ -52,4 +64,15 @@ export async function getAllMonsters() {
         fetch(BASE_URL + index.url).then((response) => response.json())
       )
     );
+}
+
+export async function getMonsters() {
+  const monsterIndexes = await fetch(BASE_URL + "/api/monsters").then((response) =>
+    response.json()
+  );
+  return Promise.all(
+    monsterIndexes.results.map((index) =>
+      fetch(BASE_URL + index.url).then((response) => response.json())
+    )
+  );
 }

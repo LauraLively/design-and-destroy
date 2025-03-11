@@ -1,0 +1,59 @@
+body {
+    background-color: #FFFFFF;
+  }
+  
+  .App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .loading {
+    color: #f7ce65;
+  }
+  
+  .equipment-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .equipment-card {
+    background-color: #f7ce65;
+    border-radius: 1rem;
+  }
+  
+  .equipment-card {
+    list-style: none;
+    max-width: 256px;
+    padding: 4px;
+  }
+  
+  .equipment-card hgroup {
+    margin-bottom: 4px;
+  }
+  
+  .equipment-card hgroup h4 {
+    color: #930c10;
+    margin-bottom: 4px;
+  }
+  
+  .equipment-card .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .equipment-card .stats strong {
+    color: #030303;
+    text-align: center;
+  }
+  
+  .equipment-card .stats p {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    font-size: 0.75rem;
+  }
