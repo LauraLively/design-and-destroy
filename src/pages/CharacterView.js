@@ -26,9 +26,7 @@ function Character() {
             getSpell(characterData.Spells)
               .then(setSpellFull)
               .then(characterData.Spells = spellDataFull)
-              console.log("All data pre", spellDataFull)
       }, []);
-      console.log("All data", spellDataFull)
     
     return(
         <>
@@ -156,7 +154,7 @@ function Character() {
         </div>
         </>
         }
-        {spellDataFull != null &&
+        {spellDataFull != null && characterData.Spells && 
         <>
         <div id="SpellContent" class="row">
             <div class="col-md-8">

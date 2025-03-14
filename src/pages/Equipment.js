@@ -1,45 +1,89 @@
-import { useEffect, useState } from "react";
-import { getAllEquipment } from "../database/ext/api";
+import { getEquipment } from '../database/ext/api';
+import { useState } from 'react';
 
+import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 
-import EquipmentCard from "../components/Equipment/equipmentCard";
-import "../components/Equipment/styles.css"
+function EquipmentPage() {
+  const [equipmentName, setEquipmentName] = useState("");
+  const [equipmentData, setEquipmentData] = useState(null);
+  const [result, setResult] = useState("");
 
-function EquipmentPage () {
-    //Loading stuff doesnt work but its not breaking it so I am pushing lol
-    const [isLoading, setIsLoading] = useState(true);
-    const [equipment, setEquipment] = useState([]);
+  function searchEquipment() {
+    if (!equipmentName.trim()) {
+      setResult("Please enter an equipment name.");
+      return;
+    }
 
-    useEffect(() => {
-      setIsLoading(true);
-      console.log("during", isLoading)
-        getAllEquipment()
-          .then(setEquipment)
-          .then(setIsLoading(false));
-          console.log("during", equipment)
-    }, []);
-    console.log("after", isLoading)
+    setResult("Searching...");
 
-    return (
+    getEquipment(equipmentName).then(data => {
+      console.log(data)
+      if (data && data.length > 0) {
+        setEquipmentData(data);
+        setResult(""); // Clear the message when data is found
+      } else {
+        setEquipmentData(null);
+        setResult("Equipment not found.");
+      }
+    }).catch(error => {
+      console.error("Error fetching equipment:", error);
+      setResult("Error fetching data. Please try again.");
+    });
+  }
+
+  return (
+    <>
+      <h1>Equipment Search</h1>
+      <input
+        type="text"
+        id="equipmentInput"
+        placeholder="Enter an equipment name"
+        value={equipmentName}
+        onChange={(e) => setEquipmentName(e.target.value)}
+      />
+      <button id="searchButton" onClick={searchEquipment}>Search</button>
+
+      {result || (equipmentData ?
         <>
-            <p>List of all equipment:</p>
-            {isLoading == true && <p>Loading...</p>}
-            <Accordion>
+          <div id="equipmentResult" class="row">
+            <div class="col-md-8">
+              <div>
+                <Accordion>
                   <div>
-                    {equipment.map((weapon) => (
-                    <div>
-                    <Accordion.Item eventKey={weapon.index}>
-                      <Accordion.Header>{weapon.name}</Accordion.Header>
-                      <Accordion.Body>
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    </div>
+                    {equipmentData.map((equipmentData) => (
+                        <Accordion.Item eventKey={equipmentData.name}>
+                          <Accordion.Header>{equipmentData.name}</Accordion.Header>
+                          <Accordion.Body>
+                            Cost: {equipmentData.cost.quantity}{equipmentData.cost.unit}<br/>
+                            Damage: {equipmentData.damage.damage_dice}
+                            Damage Type: {equipmentData.damage.damage_type}<br/>
+                            Range: {equipmentData.range}<br/>
+                            {/* Tried to map through properties */}
+                            {/* {equipmentData.properties ? Object.keys.map.properties((properties) => (
+                              <>
+                              Properties: 
+                              <ul>
+                                <li>
+                                  {properties.name}<br/>
+                                </li>
+                              </ul>
+                              </>
+                            ))}
+                            <br/> */}
+                            Category: {equipmentData.equipment_category.name}<br/>
+                          </Accordion.Body>
+                        </Accordion.Item>
                     ))}
                   </div>
-            </Accordion>
-        </>
-    )
+                </Accordion>
+              </div>
+            </div>
+          </div>
+        </> : result)}
+
+    </>
+  );
 }
 
 export default EquipmentPage;

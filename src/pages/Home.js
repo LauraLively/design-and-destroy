@@ -17,6 +17,7 @@ function Homepage () {
             <Button type="button" class="btn btn-primary p-2 g-col-3" href="#/Spells">Classes</Button>
             <Button type="button" class="btn btn-primary p-2 g-col-3" href="#/Spells">Spells</Button>
             <Button type="button" class="btn btn-primary p-2 g-col-3" href="#/Equipment">Equipment</Button>
+            <Button type="button" class="btn btn-primary p-2 g-col-3" href="#/MonsterSearch">Monster Search</Button>
         </div>
 
             {/* <DiceContainer></DiceContainer> */}

@@ -9,12 +9,14 @@ import Character from './pages/CharacterView';
 import SpellsPage from './pages/Spells';
 import EquipmentPage from './pages/Equipment';
 import ToolsPage from './pages/Tools';
+import MonsterSearch from './pages/MonsterSearch';
 import Login from './pages/Login';
 import NoMatch from './pages/error404';
 
 import Header from './components/Header/header';
 import Footer from './components/Footer/footer';
 import './components/Header/header.css';
+
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
           <Route path="/Tools" element={<ToolsPage />}></Route>
           <Route path="/Spells" element={<SpellsPage />}></Route>
           <Route path="/Equipment" element={<EquipmentPage />}></Route>
+          <Route path="/MonsterSearch" element={<MonsterSearch />}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="*" element={<NoMatch />}></Route>
         </Route>
