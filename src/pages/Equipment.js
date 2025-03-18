@@ -1,7 +1,6 @@
 import { getEquipment } from '../database/ext/api';
 import { useState } from 'react';
 
-import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 
 function EquipmentPage() {
@@ -43,7 +42,7 @@ function EquipmentPage() {
         onChange={(e) => setEquipmentName(e.target.value)}
       />
       <button id="searchButton" onClick={searchEquipment}>Search</button>
-
+      <br />
       {result || (equipmentData ?
         <>
           <div id="equipmentResult" class="row">
@@ -52,28 +51,28 @@ function EquipmentPage() {
                 <Accordion>
                   <div>
                     {equipmentData.map((equipmentData) => (
-                        <Accordion.Item eventKey={equipmentData.name}>
-                          <Accordion.Header>{equipmentData.name}</Accordion.Header>
-                          <Accordion.Body>
-                            Cost: {equipmentData.cost.quantity}{equipmentData.cost.unit}<br/>
-                            Damage: {equipmentData.damage.damage_dice}
-                            Damage Type: {equipmentData.damage.damage_type}<br/>
-                            Range: {equipmentData.range}<br/>
-                            {/* Tried to map through properties */}
-                            {/* {equipmentData.properties ? Object.keys.map.properties((properties) => (
-                              <>
-                              Properties: 
+                      <Accordion.Item key={equipmentData.name} eventKey={equipmentData.name}>
+                        <Accordion.Header>{equipmentData.name}</Accordion.Header>
+                        <Accordion.Body>
+                          Cost: {equipmentData.cost.quantity}{equipmentData.cost.unit}<br />
+                          Damage: {equipmentData.damage.damage_dice}<br />
+                          Damage Type: {equipmentData.damage.damage_type.name}<br />
+                          Range:<br />
+                          Normal - {equipmentData.range.normal}<br />
+                          {equipmentData.range.long && (<>Long - {equipmentData.range.long}</>)}<br />
+                          {equipmentData.properties && (
+                            <>
+                              Properties:
                               <ul>
-                                <li>
-                                  {properties.name}<br/>
-                                </li>
+                                {equipmentData.properties.map((property) => (
+                                  <li key={property.name}>{property.name}</li>
+                                ))}
                               </ul>
-                              </>
-                            ))}
-                            <br/> */}
-                            Category: {equipmentData.equipment_category.name}<br/>
-                          </Accordion.Body>
-                        </Accordion.Item>
+                            </>
+                          )}
+                          Category: {equipmentData.equipment_category.name}<br />
+                        </Accordion.Body>
+                      </Accordion.Item>
                     ))}
                   </div>
                 </Accordion>

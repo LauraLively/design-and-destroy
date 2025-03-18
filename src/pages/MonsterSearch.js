@@ -1,7 +1,6 @@
 import { getMonster } from '../database/ext/api';
 import { useState } from 'react';
 
-import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 
 function MonsterSearch() {
@@ -43,7 +42,7 @@ function MonsterSearch() {
                 onChange={(e) => setMonsterName(e.target.value)}
             />
             <button id="searchButton" onClick={searchMonster}>Search</button>
-            <br/>
+            <br />
             {result || (monsterData ?
                 <>
                     <div id="monsterResult" class="row">

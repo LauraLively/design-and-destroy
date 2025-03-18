@@ -39,7 +39,7 @@ export async function getEquipment(name) {
     const data = await response.json();
     const equipment = data.results;
 
-    //console.log("Equipments", equipment)
+    console.log("Equipments", equipment)
 
     const matchedEquipment = equipment.filter(
       (equipment) => equipment.name.toLowerCase().includes(name.toLowerCase())
@@ -65,6 +65,7 @@ export async function getAllClasses() {
   const classIndexes = await fetch(BASE_URL + "/api/classes").then((response) =>
     response.json()
   );
+  console.log("Classdata", classIndexes)
   return Promise.all(
     classIndexes.results.map((index) =>
       fetch(BASE_URL + index.url).then((response) => response.json())
@@ -76,6 +77,7 @@ export async function getAllRaces() {
   const raceIndexes = await fetch(BASE_URL + "/api/races").then((response) =>
     response.json()
   );
+  console.log("raceIndexes", raceIndexes)
   return Promise.all(
     raceIndexes.results.map((index) =>
       fetch(BASE_URL + index.url).then((response) => response.json())
