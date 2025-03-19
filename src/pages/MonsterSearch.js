@@ -2,6 +2,7 @@ import { getMonster } from '../database/ext/api';
 import { useState } from 'react';
 
 import Accordion from 'react-bootstrap/Accordion';
+import Spinner from 'react-bootstrap/Spinner';
 
 function MonsterSearch() {
     const [monsterName, setMonsterName] = useState("");
@@ -14,7 +15,7 @@ function MonsterSearch() {
             return;
         }
 
-        setResult("Searching...");
+        setResult(<Spinner animation="border" variant="warning" />);
 
         getMonster(monsterName).then(data => {
             console.log(data)

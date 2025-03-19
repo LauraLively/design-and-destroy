@@ -2,16 +2,20 @@ import { getAllRaces } from '../database/ext/api';
 import { useState, useEffect } from 'react';
 
 import Accordion from 'react-bootstrap/Accordion';
+import Spinner from 'react-bootstrap/Spinner';
 
 function Races() {
 
     const [races, setRaces] = useState([]);
-    const [result, setResult] = useState("");
-
-    useEffect(() => {
-        getAllRaces()
-            .then(setRaces).then(console.log(races))
-    }, []);
+    const [result, setResult] = useState(<Spinner animation="border" variant="warning" />);
+        
+        useEffect(() => {
+            getAllRaces()
+            .then((data) => {
+                setRaces(data);
+                setResult(false);
+            })
+        }, []);
 
     return (
         <>

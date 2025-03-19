@@ -2,15 +2,19 @@ import { getAllClasses } from '../database/ext/api';
 import { useState, useEffect } from 'react';
 
 import Accordion from 'react-bootstrap/Accordion';
+import Spinner from 'react-bootstrap/Spinner';
 
 function Classes() {
 
     const [classes, setClasses] = useState([]);
-    const [result, setResult] = useState("");
-
+    const [result, setResult] = useState(<Spinner animation="border" variant="warning" />);
+    
     useEffect(() => {
         getAllClasses()
-            .then(setClasses).then(console.log(classes))
+        .then((data) => {
+            setClasses(data);
+            setResult(false);
+        })
     }, []);
 
     return (

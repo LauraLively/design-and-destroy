@@ -2,6 +2,7 @@ import { getEquipment } from '../database/ext/api';
 import { useState } from 'react';
 
 import Accordion from 'react-bootstrap/Accordion';
+import Spinner from 'react-bootstrap/Spinner';
 
 function EquipmentPage() {
   const [equipmentName, setEquipmentName] = useState("");
@@ -14,7 +15,7 @@ function EquipmentPage() {
       return;
     }
 
-    setResult("Searching...");
+    setResult(<Spinner animation="border" variant="warning" />);
 
     getEquipment(equipmentName).then(data => {
       console.log(data)
@@ -54,15 +55,31 @@ function EquipmentPage() {
                       <Accordion.Item key={equipmentData.name} eventKey={equipmentData.name}>
                         <Accordion.Header>{equipmentData.name}</Accordion.Header>
                         <Accordion.Body>
-                          Cost: {equipmentData.cost.quantity}{equipmentData.cost.unit}<br />
-                          Damage: {equipmentData.damage.damage_dice}<br />
-                          Damage Type: {equipmentData.damage.damage_type.name}<br />
-                          Range:<br />
-                          Normal - {equipmentData.range.normal}<br />
-                          {equipmentData.range.long && (<>Long - {equipmentData.range.long}</>)}<br />
+                          {equipmentData.cost.quantity && (
+                            <>
+                              <strong>Cost:</strong> {equipmentData.cost.quantity}{equipmentData.cost.unit}<br />
+                            </>
+                          )}
+                          {equipmentData.damage && (
+                            <>
+                              <strong>Damage:</strong> {equipmentData.damage.damage_dice}<br />
+                            </>
+                          )}
+                          {equipmentData.damage.damage_type.name && (
+                            <>
+                              <strong>Damage Type:</strong> {equipmentData.damage.damage_type.name}<br />
+                            </>
+                          )}
+                          {equipmentData.range && (
+                            <>
+                              <strong>Range:</strong><br />
+                              <strong>Normal -</strong> {equipmentData.range.normal}<br />
+                              {equipmentData.range.long && (<>Long - {equipmentData.range.long}</>)}<br />
+                            </>
+                          )}
                           {equipmentData.properties && (
                             <>
-                              Properties:
+                              <strong>Properties:</strong>
                               <ul>
                                 {equipmentData.properties.map((property) => (
                                   <li key={property.name}>{property.name}</li>
@@ -70,7 +87,7 @@ function EquipmentPage() {
                               </ul>
                             </>
                           )}
-                          Category: {equipmentData.equipment_category.name}<br />
+                          <strong>Category:</strong> {equipmentData.equipment_category.name}<br />
                         </Accordion.Body>
                       </Accordion.Item>
                     ))}
