@@ -14,6 +14,7 @@ function Classes() {
         .then((data) => {
             setClasses(data);
             setResult(false);
+            console.log(data);
         })
     }, []);
 
@@ -38,6 +39,18 @@ function Classes() {
                                                                 <ul>
                                                                     {classes.proficiency_choices.map((proficiency_choice) => (
                                                                         <li key={proficiency_choice.desc}>{proficiency_choice.desc}
+                                                                            {/* LOOK AT THIS LAURA HELP MEE */}
+                                                                            {/* <ul>
+                                                                            {proficiency_choice.from.options.map((option) => {
+                                                                                console.log(option.item.name)
+                                                                                var optionItemName = option.item.name;
+                                                                                return (
+                                                                                <>
+                                                                                    {option.item.name}
+                                                                                </>
+                                                                                )
+                                                                            })}
+                                                                            </ul> */}
                                                                         </li>
                                                                     ))}
                                                                 </ul>

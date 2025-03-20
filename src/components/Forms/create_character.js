@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { getAllClasses } from '../../database/ext/api';
 import { getAllRaces } from '../../database/ext/api';
 
+import Races from '../../pages/Races';
+
 // const options = [
 //     { value: "Dragonborn", label: "Dragonborn" },
 //     { value: "Dwarf", label: "Dwarf" },
@@ -100,6 +102,7 @@ function CreateCharacter() {
           <div className="row">
             <div className="text-center col-md-8">
                 <p>This is a Barbarian</p>
+                <Races/>
             </div>            
           </div>
         <p></p>
