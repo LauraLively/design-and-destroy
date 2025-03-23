@@ -1,4 +1,5 @@
 const BASE_URL = "https://www.dnd5eapi.co";
+const BASE_URL2 = "https://api.open5e.com";
 
 export async function getAllSpells() {
     const spellIndexes = await fetch(BASE_URL + "/api/spells").then((response) =>
@@ -43,3 +44,24 @@ export async function getAllMonsters() {
       )
     );
 }
+
+export async function getAllRacesOpen5e() {
+  const races = await fetch(BASE_URL2 + "/races/").then((response) =>
+    response.json()
+  );
+  return Promise.all(
+    races.results.map((index) =>
+      fetch(BASE_URL2 + "/races/" + index.slug ).then((response) => response.json()),
+    )
+  ) 
+} 
+export async function getAllBackgroundsOpen5e() {
+  const backgrounds = await fetch(BASE_URL2 + "/backgrounds/").then((response) =>
+    response.json()
+  );
+  return Promise.all(
+    backgrounds.results.map((index) =>
+      fetch(BASE_URL2 + "/backgrounds/" + index.slug ).then((response) => response.json()),
+    )
+  ) 
+} 

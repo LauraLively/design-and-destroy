@@ -1,6 +1,7 @@
 import './App.css';
 
 import { Routes, Route, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import Homepage from './pages/Home';
 import CharacterCreatePage from './pages/CreateCharacter';
@@ -15,6 +16,9 @@ import Footer from './components/Footer/footer';
 import './components/Header/header.css';
 
 function App() {
+  useEffect(() => {
+    document.title = 'Design & Destroy';
+  }, []);
   return (
     <>
       <Header />

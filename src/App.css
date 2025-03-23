@@ -16,6 +16,7 @@
   --primary_dark: #333333;
   --primary_gray: #616161;
   --primary_light: #e3e3e3;
+  --khaki: #f1e9e08c;
 }
 
 .App {
@@ -59,3 +60,4 @@
 .btn-paper {
   background-image: url('../src/assets/image/old-paper-bar.png') no-repeat center center;
 }
+
