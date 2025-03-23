@@ -1,5 +1,5 @@
-import { Button } from "react-bootstrap";
 import DiceContainer from "../calc/diceRoller";
+import MonsterSearch from "./MonsterSearch";
 
 function ToolsPage () {
 
@@ -7,6 +7,7 @@ function ToolsPage () {
         <>
             <p>Tools Page</p>
             <DiceContainer></DiceContainer>
+            <MonsterSearch></MonsterSearch>
         </>
     )
 }
